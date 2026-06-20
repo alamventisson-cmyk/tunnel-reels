@@ -36,6 +36,31 @@ def load(name, default):
     return default
 
 
+def host_video(path):
+    """Upload the local MP4 to a free public host (catbox.moe) so Meta can fetch
+    it. Lets the repo stay PRIVATE — the video bytes go public only transiently
+    (and they're about to be public on Instagram anyway)."""
+    fname = os.path.basename(path).replace('"', "")
+    with open(path, "rb") as f:
+        blob = f.read()
+    boundary = "----igp" + str(os.getpid())
+    CRLF = b"\r\n"
+    body = b""
+    body += ("--" + boundary).encode() + CRLF
+    body += b'Content-Disposition: form-data; name="reqtype"' + CRLF + CRLF + b"fileupload" + CRLF
+    body += ("--" + boundary).encode() + CRLF
+    body += ('Content-Disposition: form-data; name="fileToUpload"; filename="%s"' % fname).encode() + CRLF
+    body += b"Content-Type: video/mp4" + CRLF + CRLF + blob + CRLF
+    body += ("--" + boundary + "--").encode() + CRLF
+    r = urllib.request.Request("https://catbox.moe/user/api.php", data=body,
+                               headers={"Content-Type": "multipart/form-data; boundary=" + boundary}, method="POST")
+    with urllib.request.urlopen(r, timeout=300) as resp:
+        url = resp.read().decode().strip()
+    if not url.startswith("http"):
+        raise RuntimeError("video hosting failed: " + url)
+    return url
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--account", required=True)
@@ -59,8 +84,9 @@ def main():
         print(f"[{acc}] queue empty / all posted — nothing to do")
         return 0
 
-    video_url = q["base_raw"] + nxt["file"]
-    print(f"[{acc}] posting {nxt['id']} -> {video_url}")
+    local_path = os.path.join(ROOT, nxt["file"])
+    video_url = host_video(local_path)
+    print(f"[{acc}] posting {nxt['id']} (hosted -> {video_url})")
 
     # 1) create container
     data = urllib.parse.urlencode({

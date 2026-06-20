@@ -2,8 +2,13 @@ name: post-reels
 
 on:
   schedule:
-    # Daily at 16:00 UTC = 12pm New York / 6pm Rome. Posts the next reel for each account.
-    - cron: "0 16 * * *"
+    # 5 posts/day, 1 hour apart. Each run posts ONE reel (accounts alternate).
+    # Times = US Eastern prime evening (EDT, UTC-4): 5,6,7,8,9 PM New York.
+    - cron: "0 21 * * *"   # 5 PM New York
+    - cron: "0 22 * * *"   # 6 PM New York
+    - cron: "0 23 * * *"   # 7 PM New York
+    - cron: "0 0 * * *"    # 8 PM New York
+    - cron: "0 1 * * *"    # 9 PM New York
   workflow_dispatch: {}   # lets us run it manually (the test button)
 
 permissions:
@@ -23,15 +28,13 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Post next reel for each account
+      - name: Post the next reel (accounts alternate)
         env:
           IG_MEALZEN_USER_ID: ${{ secrets.IG_MEALZEN_USER_ID }}
           IG_MEALZEN_TOKEN: ${{ secrets.IG_MEALZEN_TOKEN }}
           IG_NOURISHLY_USER_ID: ${{ secrets.IG_NOURISHLY_USER_ID }}
           IG_NOURISHLY_TOKEN: ${{ secrets.IG_NOURISHLY_TOKEN }}
-        run: |
-          python post_next.py --account mealzen || true
-          python post_next.py --account nourishly || true
+        run: python post_next.py --next-any
 
       - name: Save the posted log
         run: |

@@ -61,34 +61,10 @@ def host_video(path):
     return url
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--account", required=True)
-    args = ap.parse_args()
-    acc = args.account
-    ACC = acc.upper()
-
-    ig_id = os.environ.get(f"IG_{ACC}_USER_ID")
-    token = os.environ.get(f"IG_{ACC}_TOKEN")
-    if not ig_id or not token:
-        print(f"[{acc}] missing IG_{ACC}_USER_ID / IG_{ACC}_TOKEN env — skipping")
-        return 0
-
-    q = load("queue.json", {"base_raw": "", "queues": {}})
-    posted = load("posted.json", [])
-    posted_ids = {p["id"] for p in posted}
-
-    queue = q["queues"].get(acc, [])
-    nxt = next((it for it in queue if it["id"] not in posted_ids), None)
-    if not nxt:
-        print(f"[{acc}] queue empty / all posted — nothing to do")
-        return 0
-
+def do_post(acc, ig_id, token, nxt, posted):
     local_path = os.path.join(ROOT, nxt["file"])
     video_url = host_video(local_path)
     print(f"[{acc}] posting {nxt['id']} (hosted -> {video_url})")
-
-    # 1) create container
     data = urllib.parse.urlencode({
         "media_type": "REELS", "video_url": video_url,
         "caption": nxt.get("caption", ""), "access_token": token,
@@ -99,8 +75,6 @@ def main():
         print(f"[{acc}] container failed: {json.dumps(body)}")
         return 1
     cid = body["id"]
-
-    # 2) wait for processing
     for i in range(12):
         st, body = req(f"{API}/{cid}?fields=status_code&access_token={urllib.parse.quote(token)}")
         code = body.get("status_code")
@@ -114,8 +88,6 @@ def main():
     else:
         print(f"[{acc}] never FINISHED")
         return 1
-
-    # 3) publish
     data = urllib.parse.urlencode({"creation_id": cid, "access_token": token}).encode()
     st, body = req(f"{API}/{ig_id}/media_publish", data=data,
                    headers={"Content-Type": "application/x-www-form-urlencoded"}, method="POST")
@@ -124,12 +96,61 @@ def main():
         return 1
     media_id = body["id"]
     print(f"[{acc}] PUBLISHED ✓ {nxt['id']} media_id={media_id}")
-
-    # 4) record
     posted.append({"id": nxt["id"], "account": acc, "media_id": media_id, "ts": int(time.time())})
     with open(os.path.join(ROOT, "posted.json"), "w", encoding="utf-8") as f:
         json.dump(posted, f, indent=2, ensure_ascii=False)
     return 0
+
+
+def creds(acc):
+    return os.environ.get(f"IG_{acc.upper()}_USER_ID"), os.environ.get(f"IG_{acc.upper()}_TOKEN")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--account")
+    ap.add_argument("--next-any", action="store_true",
+                    help="Post the single next un-posted reel across ALL accounts, interleaved.")
+    args = ap.parse_args()
+
+    q = load("queue.json", {"queues": {}})
+    posted = load("posted.json", [])
+    posted_ids = {p["id"] for p in posted}
+    queues = q.get("queues", {})
+
+    if args.next_any:
+        # interleave accounts so both grow evenly: mealzen, nourishly, mealzen, ...
+        accs = list(queues.keys())
+        order = []
+        maxlen = max((len(v) for v in queues.values()), default=0)
+        for i in range(maxlen):
+            for a in accs:
+                if i < len(queues[a]):
+                    order.append((a, queues[a][i]))
+        pick = next(((a, it) for a, it in order if it["id"] not in posted_ids), None)
+        if not pick:
+            print("queue empty / all posted — nothing to do")
+            return 0
+        acc, nxt = pick
+        ig_id, token = creds(acc)
+        if not ig_id or not token:
+            print(f"[{acc}] missing creds — skipping")
+            return 0
+        return do_post(acc, ig_id, token, nxt, posted)
+
+    if not args.account:
+        print("provide --account or --next-any")
+        return 1
+    acc = args.account
+    ig_id, token = creds(acc)
+    if not ig_id or not token:
+        print(f"[{acc}] missing IG_{acc.upper()}_USER_ID / IG_{acc.upper()}_TOKEN env — skipping")
+        return 0
+    nxt = next((it for it in queues.get(acc, []) if it["id"] not in posted_ids), None)
+    if not nxt:
+        print(f"[{acc}] queue empty / all posted — nothing to do")
+        return 0
+    return do_post(acc, ig_id, token, nxt, posted)
 
 
 if __name__ == "__main__":

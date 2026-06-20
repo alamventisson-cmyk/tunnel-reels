@@ -1,0 +1,16 @@
+{
+  "base_raw": "https://raw.githubusercontent.com/alamventisson-cmyk/tunnel-reels/main/",
+  "queues": {
+    "mealzen": [
+      { "id": "mealzen-03", "file": "mealzen/03-30-days.mp4", "caption": "What 30 days of keto really does to your body 👇 Save this & start today. Full 30-day plan + recipes 👉 link in bio.\n\n#keto #ketotransformation #fatloss #weightlossjourney #lowcarb #ketodiet #30daychallenge #ketoweightloss #fatlosstips #ketoforbeginners" },
+      { "id": "mealzen-04", "file": "mealzen/04-breakfasts.mp4", "caption": "Save this 📌 3 keto breakfasts under 5g carbs, under 5 minutes. 11 more in the guide 👉 link in bio.\n\n#keto #ketobreakfast #ketorecipes #lowcarb #whatieatinaday #fatloss #ketodiet #easyrecipes #ketoforbeginners #healthyeating" },
+      { "id": "mealzen-05", "file": "mealzen/05-keto-coffee.mp4", "caption": "The coffee that makes me skip breakfast ☕ Steady energy, zero cravings, fat-burning all morning. More keto tricks 👉 link in bio.\n\n#keto #ketocoffee #bulletproofcoffee #lowcarb #fatloss #ketodiet #intermittentfasting #ketolifestyle #weightlosstips #fatlosstips" }
+    ],
+    "nourishly": [
+      { "id": "nourishly-02", "file": "nourishly/02-walking.mp4", "caption": "Walking is the #1 fat burner after 40 🚶‍♀️ Low impact, do it daily, and the belly fat starts to go. Full walking + toning plan 👉 link in bio.\n\n#over40 #walkingworkout #fatlossafter40 #womenover40 #lowimpactworkout #weightlossjourney #homeworkout #fatlosstips #healthyhabits #fitnessover40" },
+      { "id": "nourishly-03", "file": "nourishly/03-morning-routine.mp4", "caption": "Do this 5-minute standing routine every morning — no floor, no gym 🙆‍♀️ Full over-40 home plan 👉 link in bio.\n\n#morningroutine #over40 #womenover40 #lowimpactworkout #homeworkout #fatloss #weightlossjourney #healthyhabits #fitnessover40 #gentleexercise" },
+      { "id": "nourishly-04", "file": "nourishly/04-hormones.mp4", "caption": "If exercise stopped working after 40, it's not you — it's your hormones 👇 Here's the fix. Full plan 👉 link in bio.\n\n#over40 #menopausefitness #womenover40 #hormones #fatlossafter40 #weightlossjourney #lowimpactworkout #homeworkout #fatlosstips #healthyhabits" },
+      { "id": "nourishly-05", "file": "nourishly/05-chair-workout.mp4", "caption": "A 5-minute chair workout you can do sitting down 🪑 Gentle, joint-friendly, and it works. Full plan 👉 link in bio.\n\n#chairworkout #lowimpactworkout #womenover40 #homeworkout #gentleexercise #fatloss #weightlossjourney #fitnessover40 #seniorfitness #healthyhabits" }
+    ]
+  }
+}

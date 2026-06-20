@@ -1,0 +1,42 @@
+name: post-reels
+
+on:
+  schedule:
+    # Daily at 16:00 UTC = 12pm New York / 6pm Rome. Posts the next reel for each account.
+    - cron: "0 16 * * *"
+  workflow_dispatch: {}   # lets us run it manually (the test button)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: post-reels
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Post next reel for each account
+        env:
+          IG_MEALZEN_USER_ID: ${{ secrets.IG_MEALZEN_USER_ID }}
+          IG_MEALZEN_TOKEN: ${{ secrets.IG_MEALZEN_TOKEN }}
+          IG_NOURISHLY_USER_ID: ${{ secrets.IG_NOURISHLY_USER_ID }}
+          IG_NOURISHLY_TOKEN: ${{ secrets.IG_NOURISHLY_TOKEN }}
+        run: |
+          python post_next.py --account mealzen || true
+          python post_next.py --account nourishly || true
+
+      - name: Save the posted log
+        run: |
+          git config user.name "tunnel-bot"
+          git config user.email "bot@tunnel.local"
+          git add posted.json
+          git commit -m "log posted reels [skip ci]" || echo "nothing new to commit"
+          git push || echo "push skipped"

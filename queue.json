@@ -2,15 +2,93 @@
   "base_raw": "https://raw.githubusercontent.com/alamventisson-cmyk/tunnel-reels/main/",
   "queues": {
     "mealzen": [
-      { "id": "mealzen-03", "file": "mealzen/03-30-days.mp4", "caption": "What 30 days of keto really does to your body 👇 Save this & start today. Full 30-day plan + recipes 👉 link in bio.\n\n#keto #ketotransformation #fatloss #weightlossjourney #lowcarb #ketodiet #30daychallenge #ketoweightloss #fatlosstips #ketoforbeginners" },
-      { "id": "mealzen-04", "file": "mealzen/04-breakfasts.mp4", "caption": "Save this 📌 3 keto breakfasts under 5g carbs, under 5 minutes. 11 more in the guide 👉 link in bio.\n\n#keto #ketobreakfast #ketorecipes #lowcarb #whatieatinaday #fatloss #ketodiet #easyrecipes #ketoforbeginners #healthyeating" },
-      { "id": "mealzen-05", "file": "mealzen/05-keto-coffee.mp4", "caption": "The coffee that makes me skip breakfast ☕ Steady energy, zero cravings, fat-burning all morning. More keto tricks 👉 link in bio.\n\n#keto #ketocoffee #bulletproofcoffee #lowcarb #fatloss #ketodiet #intermittentfasting #ketolifestyle #weightlosstips #fatlosstips" }
+      {
+        "id": "mealzen-03",
+        "file": "mealzen/03-30-days.mp4",
+        "caption": "What 30 days of keto really does to your body 👇 Save this & start today. Full 30-day plan + recipes 👉 link in bio.\n\n#keto #ketotransformation #fatloss #weightlossjourney #lowcarb #ketodiet #30daychallenge #ketoweightloss #fatlosstips #ketoforbeginners"
+      },
+      {
+        "id": "mealzen-04",
+        "file": "mealzen/04-breakfasts.mp4",
+        "caption": "Save this 📌 3 keto breakfasts under 5g carbs, under 5 minutes. 11 more in the guide 👉 link in bio.\n\n#keto #ketobreakfast #ketorecipes #lowcarb #whatieatinaday #fatloss #ketodiet #easyrecipes #ketoforbeginners #healthyeating"
+      },
+      {
+        "id": "mealzen-05",
+        "file": "mealzen/05-keto-coffee.mp4",
+        "caption": "The coffee that makes me skip breakfast ☕ Steady energy, zero cravings, fat-burning all morning. More keto tricks 👉 link in bio.\n\n#keto #ketocoffee #bulletproofcoffee #lowcarb #fatloss #ketodiet #intermittentfasting #ketolifestyle #weightlosstips #fatlosstips"
+      },
+      {
+        "id": "mealzen-06",
+        "file": "mealzen/06-keto-snacks.mp4",
+        "caption": "5 keto snacks that kill cravings — and keep you in fat-burn 🧀🥜 Save this. Full snack list 👉 link in bio.\n\n#keto #ketosnacks #lowcarb #ketodiet #fatloss #cravings #ketorecipes #weightlosstips #ketoforbeginners #healthysnacks"
+      },
+      {
+        "id": "mealzen-07",
+        "file": "mealzen/07-fat-myth.mp4",
+        "caption": "Fat doesnt make you fat — sugar does 👇 The myth stalling your fat loss. Free keto guide 👉 link in bio.\n\n#keto #fatloss #lowcarb #ketodiet #sugarfree #ketoforbeginners #weightlossjourney #healthyfats #insulin #fatlosstips"
+      },
+      {
+        "id": "mealzen-08",
+        "file": "mealzen/08-keto-foods.mp4",
+        "caption": "The keto foods you can eat till youre full ✅ Save this list. Full keto food guide 👉 link in bio.\n\n#keto #ketodiet #ketofood #lowcarb #fatloss #ketorecipes #whattoeat #ketoforbeginners #weightlosstips #healthyeating"
+      },
+      {
+        "id": "mealzen-09",
+        "file": "mealzen/09-keto-mistakes.mp4",
+        "caption": "3 keto mistakes stalling your fat loss 👇 Fix these and the scale moves. Free keto guide 👉 link in bio.\n\n#keto #ketomistakes #fatloss #lowcarb #ketodiet #weightlossjourney #ketotips #ketoforbeginners #fatlosstips #weightloss"
+      },
+      {
+        "id": "mealzen-10",
+        "file": "mealzen/10-keto-dinner.mp4",
+        "caption": "A keto dinner in 10 minutes 🍽️ High fat, high protein, almost no carbs. 12 more recipes 👉 link in bio.\n\n#keto #ketodinner #ketorecipes #lowcarb #fatloss #easyrecipes #ketodiet #quickmeals #ketoforbeginners #healthydinner"
+      }
     ],
     "nourishly": [
-      { "id": "nourishly-02", "file": "nourishly/02-walking.mp4", "caption": "Walking is the #1 fat burner after 40 🚶‍♀️ Low impact, do it daily, and the belly fat starts to go. Full walking + toning plan 👉 link in bio.\n\n#over40 #walkingworkout #fatlossafter40 #womenover40 #lowimpactworkout #weightlossjourney #homeworkout #fatlosstips #healthyhabits #fitnessover40" },
-      { "id": "nourishly-03", "file": "nourishly/03-morning-routine.mp4", "caption": "Do this 5-minute standing routine every morning — no floor, no gym 🙆‍♀️ Full over-40 home plan 👉 link in bio.\n\n#morningroutine #over40 #womenover40 #lowimpactworkout #homeworkout #fatloss #weightlossjourney #healthyhabits #fitnessover40 #gentleexercise" },
-      { "id": "nourishly-04", "file": "nourishly/04-hormones.mp4", "caption": "If exercise stopped working after 40, it's not you — it's your hormones 👇 Here's the fix. Full plan 👉 link in bio.\n\n#over40 #menopausefitness #womenover40 #hormones #fatlossafter40 #weightlossjourney #lowimpactworkout #homeworkout #fatlosstips #healthyhabits" },
-      { "id": "nourishly-05", "file": "nourishly/05-chair-workout.mp4", "caption": "A 5-minute chair workout you can do sitting down 🪑 Gentle, joint-friendly, and it works. Full plan 👉 link in bio.\n\n#chairworkout #lowimpactworkout #womenover40 #homeworkout #gentleexercise #fatloss #weightlossjourney #fitnessover40 #seniorfitness #healthyhabits" }
+      {
+        "id": "nourishly-02",
+        "file": "nourishly/02-walking.mp4",
+        "caption": "Walking is the #1 fat burner after 40 🚶‍♀️ Low impact, do it daily, and the belly fat starts to go. Full walking + toning plan 👉 link in bio.\n\n#over40 #walkingworkout #fatlossafter40 #womenover40 #lowimpactworkout #weightlossjourney #homeworkout #fatlosstips #healthyhabits #fitnessover40"
+      },
+      {
+        "id": "nourishly-03",
+        "file": "nourishly/03-morning-routine.mp4",
+        "caption": "Do this 5-minute standing routine every morning — no floor, no gym 🙆‍♀️ Full over-40 home plan 👉 link in bio.\n\n#morningroutine #over40 #womenover40 #lowimpactworkout #homeworkout #fatloss #weightlossjourney #healthyhabits #fitnessover40 #gentleexercise"
+      },
+      {
+        "id": "nourishly-04",
+        "file": "nourishly/04-hormones.mp4",
+        "caption": "If exercise stopped working after 40, it's not you — it's your hormones 👇 Here's the fix. Full plan 👉 link in bio.\n\n#over40 #menopausefitness #womenover40 #hormones #fatlossafter40 #weightlossjourney #lowimpactworkout #homeworkout #fatlosstips #healthyhabits"
+      },
+      {
+        "id": "nourishly-05",
+        "file": "nourishly/05-chair-workout.mp4",
+        "caption": "A 5-minute chair workout you can do sitting down 🪑 Gentle, joint-friendly, and it works. Full plan 👉 link in bio.\n\n#chairworkout #lowimpactworkout #womenover40 #homeworkout #gentleexercise #fatloss #weightlossjourney #fitnessover40 #seniorfitness #healthyhabits"
+      },
+      {
+        "id": "nourishly-06",
+        "file": "nourishly/06-belly-burn.mp4",
+        "caption": "10-minute home workout to burn belly fat 🔥 No equipment, no jumping. Save this. Full plan 👉 link in bio.\n\n#homeworkout #bellyfat #fatloss #womensfitness #nogym #weightlossjourney #lowimpactworkout #fitnessmotivation #workoutathome #fatlosstips"
+      },
+      {
+        "id": "nourishly-07",
+        "file": "nourishly/07-tone-arms.mp4",
+        "caption": "Tone your arms at home — no weights 💪 Just bodyweight. Save this. Full plan 👉 link in bio.\n\n#tonedarms #homeworkout #womensfitness #noweights #fatloss #armworkout #fitnessmotivation #workoutathome #nogym #weightlosstips"
+      },
+      {
+        "id": "nourishly-08",
+        "file": "nourishly/08-flat-stomach.mp4",
+        "caption": "The best at-home moves for a flatter stomach 🔥 Save & do daily. Full core plan 👉 link in bio.\n\n#flatstomach #coreworkout #homeworkout #womensfitness #absworkout #fatloss #fitnessmotivation #workoutathome #weightlossjourney #fatlosstips"
+      },
+      {
+        "id": "nourishly-09",
+        "file": "nourishly/09-no-gym.mp4",
+        "caption": "You dont need a gym to lose fat 🚶‍♀️ Heres the at-home formula. Full plan 👉 link in bio.\n\n#nogym #fatloss #homeworkout #womensfitness #weightlossjourney #walking #workoutathome #fitnessmotivation #lowimpactworkout #fatlosstips"
+      },
+      {
+        "id": "nourishly-10",
+        "file": "nourishly/10-wl-mistakes.mp4",
+        "caption": "3 mistakes keeping you from losing weight 👇 Fix these and your body changes. Beginner plan 👉 link in bio.\n\n#weightloss #fatloss #womensfitness #weightlossmistakes #homeworkout #fitnessmotivation #weightlossjourney #fatlosstips #beginnerworkout #healthyhabits"
+      }
     ]
   }
 }

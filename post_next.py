@@ -12,6 +12,7 @@ import argparse, json, os, sys, time, urllib.request, urllib.parse, urllib.error
 
 API = "https://graph.instagram.com/v25.0"
 ROOT = os.path.dirname(os.path.abspath(__file__))
+RAW_BASE = "https://raw.githubusercontent.com/alamventisson-cmyk/tunnel-reels/main/"
 
 
 def req(url, data=None, headers=None, method="GET"):
@@ -62,9 +63,8 @@ def host_video(path):
 
 
 def do_post(acc, ig_id, token, nxt, posted):
-    local_path = os.path.join(ROOT, nxt["file"])
-    video_url = host_video(local_path)
-    print(f"[{acc}] posting {nxt['id']} (hosted -> {video_url})")
+    video_url = RAW_BASE + nxt["file"]
+    print(f"[{acc}] posting {nxt['id']} -> {video_url}")
     data = urllib.parse.urlencode({
         "media_type": "REELS", "video_url": video_url,
         "caption": nxt.get("caption", ""), "access_token": token,

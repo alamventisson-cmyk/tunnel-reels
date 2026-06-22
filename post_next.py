@@ -9,6 +9,10 @@ Tokens come from environment (GitHub Actions secrets):
   IG_<ACCOUNT>_USER_ID , IG_<ACCOUNT>_TOKEN
 """
 import argparse, json, os, sys, time, urllib.request, urllib.parse, urllib.error
+try:
+    sys.stdout.reconfigure(encoding="utf-8")  # avoid Windows cp1252 crashes
+except Exception:
+    pass
 
 API = "https://graph.instagram.com/v25.0"
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -97,7 +101,7 @@ def do_post(acc, ig_id, token, nxt, posted):
         print(f"[{acc}] publish failed: {json.dumps(body)}")
         return 1
     media_id = body["id"]
-    print(f"[{acc}] PUBLISHED ✓ {nxt['id']} media_id={media_id}")
+    print(f"[{acc}] PUBLISHED OK {nxt['id']} media_id={media_id}")
     posted.append({"id": nxt["id"], "account": acc, "media_id": media_id, "ts": int(time.time())})
     with open(os.path.join(ROOT, "posted.json"), "w", encoding="utf-8") as f:
         json.dump(posted, f, indent=2, ensure_ascii=False)

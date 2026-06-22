@@ -68,6 +68,8 @@ def do_post(acc, ig_id, token, nxt, posted):
     data = urllib.parse.urlencode({
         "media_type": "REELS", "video_url": video_url,
         "caption": nxt.get("caption", ""), "access_token": token,
+        # Cover frame: 3s in (avoids the black fade-in frame at 0s).
+        "thumb_offset": 3000,
     }).encode()
     st, body = req(f"{API}/{ig_id}/media", data=data,
                    headers={"Content-Type": "application/x-www-form-urlencoded"}, method="POST")
